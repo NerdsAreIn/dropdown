@@ -1,6 +1,6 @@
 @font-face {
     font-family: "comic";
-    src: url("/fonts/comic-shark-font.zip/") format("truetype");
+    src: url("ComicShark-lgVE5.otf") format("opentype");
 }
 html {
     font-size: 18px;
@@ -18,49 +18,70 @@ nav {
     background-color: rgb(211, 255, 251);
     height: 19vh;
 }    
+.li-div {
+    width: 20vw;
+    float: left;
+}
 li.header {
-    padding: 7vh 10px 5px;
-    width: 33.3%;
-    height: 19vh;    
+    width: fit-content;
+    height: fit-content;    
     text-align: center;        
     list-style: none;
     background-color: inherit;
-    float: left;
+    font-family: "comic";
+    letter-spacing: 1px; 
+    margin: auto;
+    margin-top: 4.5vh;  
    /* border-right: 1px solid rgb(247, 115, 100);*/      
 }
 a {
     text-decoration: none;   
-    /*color: rgb(231, 127, 116);*/
     font-weight: bold;
     color: black;
     position: relative;
-    top: -10px;
+    vertical-align: middle;
+    transition: color ease 100ms;
 }
 .arrow {
     font-size: 1.5rem;
-    margin-left: 10px;   
+    margin-left: 3px;   
     position: relative;
     top: -2.5px;
 }
-#places {
-    border-right: none;
-}
-#numbers-button {
-   
-}
-div#numbers-menu {
+.menuDiv {
     display: none;
-    width: 20%;
+    width: 20vw;
     position: fixed;
-    top: 15vh; 
-    left: 6.5vw;  
+    top: 16vh;      
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
-#numbers-button:hover + #numbers-menu {
+#numbers-menu {
+    left: 1vw; 
+}
+#names-menu {
+    left: 39.5vw; 
+}
+#food-menu {
+    left: 60vw;
+}
+#places-menu {
+    left: 79vw; 
+}
+#films-button {
+    margin-top: 6.3vh;
+}
+#numbers-button:hover a, #names-button:hover a,
+#places-button:hover a, #food-button:hover a,
+#films-button:hover a {
+    color:  rgb(252, 177, 188);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#numbers-button:hover + #numbers-menu, #names-button:hover + #names-menu,
+#places-button:hover + #places-menu, #food-button:hover + #food-menu {
     display: block;
-}    
+}
 ul.dropdown > li {
     text-align: center;
     list-style: none;
