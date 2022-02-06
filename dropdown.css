@@ -17,14 +17,20 @@ nav {
     border-bottom: 4px solid black;
     background-color: rgb(211, 255, 251);
     height: 19vh;
+    padding-left: 2px;
 }    
 .li-div {
-    width: 20vw;
-    float: left;
+    width: 20vw;    
+    /*border: 1px solid red;*/
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    margin: -2px; 
+    height: 15vh;     
 }
 li.header {
     width: fit-content;
-    height: fit-content;    
+    height: inherit;    
     text-align: center;        
     list-style: none;
     background-color: inherit;
@@ -38,8 +44,7 @@ a {
     text-decoration: none;   
     font-weight: bold;
     color: black;
-    position: relative;
-    vertical-align: middle;
+    position: relative;    
     transition: color ease 100ms;
 }
 .arrow {
@@ -50,14 +55,15 @@ a {
 }
 .menuDiv {
     display: none;
-    width: 20vw;
-    position: fixed;
-    top: 16vh;      
+    width: 19vw;
+    position: absolute;
+    top: 15vh;       
     border-top: 2px solid black;
     border-left: 2px solid black;
-    border-right: 2px solid black;
+    border-right: 2px solid black;    
+    margin: 0 5px;
 }
-#numbers-menu {
+/*#numbers-menu {
     left: 1vw; 
 }
 #names-menu {
@@ -68,7 +74,7 @@ a {
 }
 #places-menu {
     left: 79vw; 
-}
+}*/
 #films-button {
     margin-top: 6.3vh;
 }
@@ -78,10 +84,11 @@ a {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-#numbers-button:hover + #numbers-menu, #names-button:hover + #names-menu,
+/*#numbers-button:hover + #numbers-menu, #names-button:hover + #names-menu,
 #places-button:hover + #places-menu, #food-button:hover + #food-menu {
     display: block;
-}
+    left: 0;  
+}*/
 ul.dropdown > li {
     text-align: center;
     list-style: none;
@@ -98,7 +105,6 @@ ul.dropdown > li {
     width: 17px;
     height: 17px;
     background-color: rgb(252, 177, 188);
-    margin: auto;
     border-top: 2px solid black;
     border-left: 2px solid black;
     z-index: 3;
