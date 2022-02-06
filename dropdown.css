@@ -16,8 +16,10 @@ nav {
     width: 100vw;    
     border-bottom: 4px solid black;
     background-color: rgb(211, 255, 251);
-    height: 19vh;
-    padding-left: 2px;
+    height: 100px;
+    padding-left: 2px;    
+    display: flex;
+    align-items: baseline;
 }    
 .li-div {
     width: 20vw;    
@@ -26,26 +28,26 @@ nav {
     position: relative;
     display: inline-block;
     margin: -2px; 
-    height: 15vh;     
+    height: 98px;
+    padding-top: 10px;     
+   /* vertical-align: baseline;*/
 }
 li.header {
     width: fit-content;
-    height: inherit;    
+    height: 60%;    
     text-align: center;        
     list-style: none;
     background-color: inherit;
     font-family: "comic";
     letter-spacing: 1px; 
-    margin: auto;
-    margin-top: 4.5vh;  
-   /* border-right: 1px solid rgb(247, 115, 100);*/      
+    margin: auto;               
 }
 a {
     text-decoration: none;   
     font-weight: bold;
     color: black;
     position: relative;    
-    transition: color ease 100ms;
+    transition: color ease 100ms;      
 }
 .arrow {
     font-size: 1.5rem;
@@ -57,38 +59,22 @@ a {
     display: none;
     width: 19vw;
     position: absolute;
-    top: 15vh;       
+    top: 60px;       
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;    
-    margin: 0 5px;
+    margin: 3px 5px;    
 }
-/*#numbers-menu {
-    left: 1vw; 
+.menuDiv li:hover, .triangle.hovered {
+    background-color: cornflowerblue;
 }
-#names-menu {
-    left: 39.5vw; 
-}
-#food-menu {
-    left: 60vw;
-}
-#places-menu {
-    left: 79vw; 
-}*/
 #films-button {
     margin-top: 6.3vh;
 }
-#numbers-button:hover a, #names-button:hover a,
-#places-button:hover a, #food-button:hover a,
-#films-button:hover a {
+li.header:hover a, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-/*#numbers-button:hover + #numbers-menu, #names-button:hover + #names-menu,
-#places-button:hover + #places-menu, #food-button:hover + #food-menu {
-    display: block;
-    left: 0;  
-}*/
 ul.dropdown > li {
     text-align: center;
     list-style: none;
@@ -112,4 +98,9 @@ ul.dropdown > li {
     top: -10px;
     left: calc(50% - 10px);
     transform: rotate(45deg);
+}
+@media screen and (max-width: 800px) {
+    .menuDiv {
+        font-size: 0.8rem;
+    }
 }
