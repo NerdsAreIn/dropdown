@@ -4,11 +4,18 @@
 }
 html {
     font-size: 18px;
+    scroll-behavior: smooth;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body {
+    background-color: thistle;
+    position: relative;
+    overflow: auto;
+    z-index: 0;
 }
 nav {
     position: fixed; 
@@ -19,6 +26,8 @@ nav {
     padding-left: 2px;    
     display: flex;
     align-items: baseline;
+    z-index: 2;
+
 }    
 #nav1 {
     top: 0;
@@ -111,4 +120,14 @@ ul.dropdown > li {
     .menuDiv {
         font-size: 0.8rem;
     }
+}
+p {
+    position: absolute;
+    top: 400px;
+    
+}
+h1 {
+    position: absolute;
+    top: 1000px;
+    z-index: 1;
 }
