@@ -2,6 +2,12 @@ const dropdownAreas = Array.from(document.getElementsByClassName("li-div"));
 const headers = Array.from(document.getElementsByClassName("header"));
 const menus = Array.from(document.getElementsByClassName("menuDiv"));
 const nav1 = document.getElementById("nav1");
+const mobileWidth = window.matchMedia("(max-width: 450px)");
+
+mobileWidth.addEventListener("change", handleHeaders);
+window.addEventListener("load", handleHeaders);
+mobileWidth.addEventListener("change", handleMenus);
+window.addEventListener("load", handleMenus);
 
 // mouseover also applies to child elements
 
@@ -27,51 +33,61 @@ function populateDropdown(itemsNumber, firstItem, ...otheritems) {
     items.forEach(item => nav1.)
 }*/
 
-headers.forEach(header => {
-    header.addEventListener("mouseover", () => {
-        header.parentElement.children[1].setAttribute("style", "display: block");
-        header.firstElementChild.className = "hovered";
-    }, true);
-    header.addEventListener("mouseout", () => {
-        header.parentElement.children[1].setAttribute("style", "display: none");
-        header.firstElementChild.classList.remove("hovered");
-    }, true);
-    header.addEventListener("click", () => {
-        header.parentElement.children[1].classList.toggle("hovered");
-        header.firstElementChild.classList.toggle("hovered");
-    }, true);   
-});
+function handleHeaders() {
+    headers.forEach(header => {    
+        if (mobileWidth.matches) {
+            console.log("mobile!");
+            console.log(window.innerWidth);
+            header.addEventListener("click", headerHoverHandler, true); 
+            header.firstElementChild.addEventListener("click", headerHoverHandler, true); 
+            header.removeEventListener("mouseenter", headerHoverHandler, true);
+            header.removeEventListener("mouseleave", headerHoverHandler, true);
+        }
+        else {
+            console.log("desktop");
+            console.log(window.innerWidth);
+            header.addEventListener("mouseenter", headerHoverHandler, true);
+            header.addEventListener("mouseleave", headerHoverHandler, true);
+            header.firstElementChild.removeEventListener("click", headerHoverHandler, true);
+            header.removeEventListener("click", headerHoverHandler, true); 
+        }       
+    });
+}
+function triangleHoverHandler() {    
+    this.parentElement.previousElementSibling.classList.toggle("hovered");
+}
+function menuHoverHandler(e) {
+    e.target.classList.toggle("hovered");
+    e.target.previousElementSibling.firstElementChild.classList.toggle("hovered");
+}
+function headerHoverHandler(e) {
+    e.target.parentElement.children[1].classList.toggle("hovered");
+    e.target.firstElementChild.classList.toggle("hovered");
+}
 
-// --TODO: condense these into named functions, which can be repeated
-
-menus.forEach(menu => {
-        menu.children[1].children[0].onmouseenter = () => {
-            menu.children[0].classList.add("hovered");
-        };
-        menu.children[1].children[0].onmouseleave = () => {
-            menu.children[0].classList.remove("hovered");
-        };
-        menu.children[1].children[0].onclick = () => {
-            menu.children[0].classList.toggle("hovered");
-        };
-        menu.addEventListener("mouseover", () => {
-            menu.setAttribute("style", "display: block");
-            menu.previousElementSibling.firstElementChild.classList.add("hovered");        
-        }, true);
-        menu.addEventListener("mouseout", () => {
-            menu.setAttribute("style", "display: none");
-            menu.previousElementSibling.firstElementChild.classList.remove("hovered");
-        }, true);
-        menu.addEventListener("click", (e) => {
-            e.stopImmediatePropagation();
-            e.target.classList.add("hovered");
-        });
-        window.addEventListener("click", (e) => {
+function handleMenus() {
+    menus.forEach(menu => {
+        if (mobileWidth.matches) {
+            window.addEventListener("click", (e) => {
                 if (e.target !== menu && e.target.className !== "header") {
                 menu.classList.remove("hovered");
                 menu.previousElementSibling.firstElementChild.classList.remove("hovered");
-            }
-        }, true);
-});
+                }
+            }, true);
+            menu.children[1].children[0].removeEventListener("mouseover", triangleHoverHandler);
+            menu.children[1].children[0].removeEventListener("mouseout", triangleHoverHandler);
+            menu.children[1].children[0].addEventListener("click", triangleHoverHandler);
+            menu.removeEventListener("mouseenter", menuHoverHandler, true);
+            menu.removeEventListener("mouseleave", menuHoverHandler, true);
+        }
+        else {
+            menu.children[1].children[0].addEventListener("mouseover", triangleHoverHandler);
+            menu.children[1].children[0].addEventListener("mouseout", triangleHoverHandler);
+            menu.children[1].children[0].removeEventListener("click", triangleHoverHandler);
+            menu.addEventListener("mouseenter", menuHoverHandler, true);
+            menu.addEventListener("mouseleave", menuHoverHandler, true);            
+        }         
+    });
+}
 
 

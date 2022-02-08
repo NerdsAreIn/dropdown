@@ -23,7 +23,7 @@ nav {
     border-bottom: 4px solid black;
     background-color: rgb(211, 255, 251);
     height: 100px;
-    padding-left: 2px;    
+    padding-left: 10px;    
     display: flex;
     align-items: baseline;
     z-index: 2;
