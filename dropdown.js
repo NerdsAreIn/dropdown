@@ -24,8 +24,8 @@ function handleHeaders() {
         else {
             console.log("desktop");
             console.log(window.innerWidth);
-            header.addEventListener("mouseenter", headerHoverHandler, true);
-            header.addEventListener("mouseleave", headerHoverHandler, true);
+            header.addEventListener("mouseover", headerHoverHandler);
+            header.addEventListener("mouseout", headerHoverHandler);
             header.firstElementChild.removeEventListener("click", headerHoverHandler, true);
             header.removeEventListener("click", headerHoverHandler, true); 
         }       
@@ -39,7 +39,12 @@ function menuHoverHandler(e) {
     e.target.previousElementSibling.firstElementChild.classList.toggle("hovered");
 }
 function headerHoverHandler(e) {
-    e.target.parentElement.children[1].classList.toggle("hovered");
+    const listItems = Array.from(e.target.parentElement.nextElementSibling.children);
+    console.log({listItems});
+    console.log(e.target.parentElement.nextElementSibling);
+    const dropdownHeight = listItems.length * 50;
+    console.log({dropdownHeight});
+    e.target.parentElement.nextElementSibling.style.height = dropdownHeight + "px";
     e.target.firstElementChild.classList.toggle("hovered");
 }
 

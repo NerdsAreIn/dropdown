@@ -12,7 +12,7 @@ html {
     box-sizing: border-box;
 }
 body {
-    background-color: thistle;
+    background-color: rgb(245, 234, 245);
     position: relative;
     overflow: auto;
     z-index: 0;
@@ -20,13 +20,12 @@ body {
 nav {
     position: fixed; 
     width: 100vw;    
-    border-bottom: 4px solid black;
     background-color: rgb(211, 255, 251);
-    height: 80px;
+    height: 90px;
     padding-left: 10px;    
     display: flex;
     align-items: baseline;
-    z-index: 2;
+    z-index: 2;    
 }    
 #nav2 {
     top: 0;
@@ -36,9 +35,10 @@ nav {
     overflow: visible;
     position: relative;
     display: inline-block;
-    margin: -2px; 
-    height: 78px;
-    padding-top: 5px;     
+    margin: 1px; 
+    height: inherit;       
+    z-index: 3;  
+    height: fit-content;  
 }
 li.header {
     width: fit-content;
@@ -48,7 +48,9 @@ li.header {
     background-color: inherit;
     font-family: "comic";
     letter-spacing: 1px; 
-    margin: auto;               
+    margin: auto;     
+    z-index: 4;          
+    padding: 5px;    
 }
 a {
     text-decoration: none;   
@@ -56,6 +58,7 @@ a {
     color: black;
     position: relative;    
     transition: color ease 100ms;      
+    z-index: 5;
 }
 .arrow {
     font-size: 1.5rem;
@@ -64,16 +67,15 @@ a {
     top: -2.5px;
 }
 .menuDiv {
-    display: none;
-    width: 19vw;
-    position: absolute;
-    top: 57px;      
-    border-left: 2px solid black;
-    border-right: 2px solid black;    
-    margin: 3px 5px;    
-}
-li.header:hover .menuDiv, .menuDiv.hovered {
-    display: block;
+    height: 0;
+    width: 18vw;
+    position: fixed;
+    top: 86px;       
+    margin: 3px 5px;
+    background-color: rgb(252, 177, 188);
+    z-index: 0;
+    overflow: hidden;
+    transition: height 1s;      
 }
 .menuDiv li:hover, .menuDiv li.hovered {
     background-color: cornflowerblue;
@@ -85,7 +87,7 @@ li.header:hover a, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-ul.dropdown > li {
+.menuDiv li {    
     text-align: center;
     list-style: none;
     background-color: rgb(252, 177, 188);
@@ -93,7 +95,6 @@ ul.dropdown > li {
     padding: 10px 0;    
     margin: auto;
     height: 50px;
-    border-bottom: 2px solid black;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-family: "comic";
 }
