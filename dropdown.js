@@ -11,28 +11,6 @@ window.addEventListener("load", handleMenus);
 
 // mouseover also applies to child elements
 
-// --FIXME: want to work out how to generate more navbar items and dropdown items:
-
-/*function createNavItem(name, headerID, menuID ) {
-    const navItem = document.createElement("div");
-    navItem.innerHTML = `<div class="li-div"><li id="${headerID}" class="header"><a href="#">`
-    + name + `<span class="arrow">&#8964;</span></a></li><div id="${menuID}" class="menuDiv">
-    <div class="triangle"></div><ul class="dropdown">` 
-    + populateDropdown(3, "One", "Two", "Three")
-    + `</ul></div></div>`;
-}
-
-function populateDropdown(itemsNumber, firstItem, ...otheritems) {
-    let items = [];
-    items[0] = '<li>' + firstItem + '</li>';
-    for (let i = 1; i < itemsNumber; i++) {
-        const item = document.createElement("li");
-        item.textContent = otheritems[i - 1];
-        items.push(item);
-    }
-    items.forEach(item => nav1.)
-}*/
-
 function handleHeaders() {
     headers.forEach(header => {    
         if (mobileWidth.matches) {
@@ -53,9 +31,9 @@ function handleHeaders() {
         }       
     });
 }
-function triangleHoverHandler() {    
+/*function triangleHoverHandler() {    
     this.parentElement.previousElementSibling.classList.toggle("hovered");
-}
+}*/
 function menuHoverHandler(e) {
     e.target.classList.toggle("hovered");
     e.target.previousElementSibling.firstElementChild.classList.toggle("hovered");
@@ -74,16 +52,16 @@ function handleMenus() {
                 menu.previousElementSibling.firstElementChild.classList.remove("hovered");
                 }
             }, true);
-            menu.children[1].children[0].removeEventListener("mouseover", triangleHoverHandler);
-            menu.children[1].children[0].removeEventListener("mouseout", triangleHoverHandler);
-            menu.children[1].children[0].addEventListener("click", triangleHoverHandler);
+            //menu.children[1].children[0].removeEventListener("mouseover", triangleHoverHandler);
+           // menu.children[1].children[0].removeEventListener("mouseout", triangleHoverHandler);
+           // menu.children[1].children[0].addEventListener("click", triangleHoverHandler);
             menu.removeEventListener("mouseenter", menuHoverHandler, true);
             menu.removeEventListener("mouseleave", menuHoverHandler, true);
         }
         else {
-            menu.children[1].children[0].addEventListener("mouseover", triangleHoverHandler);
-            menu.children[1].children[0].addEventListener("mouseout", triangleHoverHandler);
-            menu.children[1].children[0].removeEventListener("click", triangleHoverHandler);
+           // menu.children[1].children[0].addEventListener("mouseover", triangleHoverHandler);
+           // menu.children[1].children[0].addEventListener("mouseout", triangleHoverHandler);
+           // menu.children[1].children[0].removeEventListener("click", triangleHoverHandler);
             menu.addEventListener("mouseenter", menuHoverHandler, true);
             menu.addEventListener("mouseleave", menuHoverHandler, true);            
         }         

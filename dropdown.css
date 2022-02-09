@@ -22,7 +22,7 @@ nav {
     width: 100vw;    
     border-bottom: 4px solid black;
     background-color: rgb(211, 255, 251);
-    height: 100px;
+    height: 80px;
     padding-left: 10px;    
     display: flex;
     align-items: baseline;
@@ -37,22 +37,18 @@ nav {
     position: relative;
     display: inline-block;
     margin: -2px; 
-    height: 98px;
-    padding-top: 10px;     
-   /* vertical-align: baseline;*/
+    height: 78px;
+    padding-top: 5px;     
 }
 li.header {
     width: fit-content;
-    height: 60%;    
+    height: 100%;    
     text-align: center;        
     list-style: none;
     background-color: inherit;
     font-family: "comic";
     letter-spacing: 1px; 
     margin: auto;               
-}
-li.header:hover .menuDiv, .menuDiv.hovered {
-    display: block;
 }
 a {
     text-decoration: none;   
@@ -71,13 +67,15 @@ a {
     display: none;
     width: 19vw;
     position: absolute;
-    top: 60px;       
-    border-top: 2px solid black;
+    top: 57px;      
     border-left: 2px solid black;
     border-right: 2px solid black;    
     margin: 3px 5px;    
 }
-.menuDiv li:hover, .triangle.hovered, .menuDiv li.hovered {
+li.header:hover .menuDiv, .menuDiv.hovered {
+    display: block;
+}
+.menuDiv li:hover, .menuDiv li.hovered {
     background-color: cornflowerblue;
 }
 #films-button {
@@ -99,7 +97,7 @@ ul.dropdown > li {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-family: "comic";
 }
-.triangle {
+/*.triangle {
     width: 17px;
     height: 17px;
     background-color: rgb(252, 177, 188);
@@ -110,7 +108,7 @@ ul.dropdown > li {
     top: -10px;
     left: calc(50% - 10px);
     transform: rotate(45deg);
-}
+}*/
 @media screen and (max-width: 800px) {
     .menuDiv {
         font-size: 0.8rem;
