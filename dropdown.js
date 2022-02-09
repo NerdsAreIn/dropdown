@@ -46,6 +46,7 @@ function headerHoverHandler(e) {
     console.log({dropdownHeight});
     e.target.parentElement.nextElementSibling.style.height = dropdownHeight + "px";
     e.target.firstElementChild.classList.toggle("hovered");
+    e.target.children[1].classList.add("hovered");
 }
 
 function handleMenus() {

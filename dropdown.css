@@ -52,6 +52,17 @@ li.header {
     z-index: 4;          
     padding: 5px;    
 }
+.underline {
+    height: 3px;
+    background-color: cornflowerblue;
+    margin-top: 3px;
+    margin-left: -5px;
+    width: 0;
+    transition: width 1s;
+}
+.underline.hovered {
+    width: 110%;
+}
 a {
     text-decoration: none;   
     font-weight: bold;
@@ -115,4 +126,5 @@ li.header:hover a, a.hovered {
         font-size: 0.8rem;
     }
 }
+
 
