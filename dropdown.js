@@ -14,62 +14,60 @@ window.addEventListener("load", handleMenus);
 function handleHeaders() {
     headers.forEach(header => {    
         if (mobileWidth.matches) {
-            console.log("mobile!");
-            console.log(window.innerWidth);
-            header.addEventListener("click", headerHoverHandler, true); 
-            header.firstElementChild.addEventListener("click", headerHoverHandler, true); 
-            header.removeEventListener("mouseenter", headerHoverHandler, true);
-            header.removeEventListener("mouseleave", headerHoverHandler, true);
+            //header.addEventListener("click", headerHoverHandler, true); 
+            //header.firstElementChild.addEventListener("click", headerHoverHandler, true); 
+            header.removeEventListener("mouseover", headerHoverHandler, true);
+            header.removeEventListener("mouseout", headerHoverHandler, true);
         }
         else {
-            console.log("desktop");
-            console.log(window.innerWidth);
             header.addEventListener("mouseover", headerHoverHandler);
-            header.addEventListener("mouseout", headerHoverHandler);
-            header.firstElementChild.removeEventListener("click", headerHoverHandler, true);
-            header.removeEventListener("click", headerHoverHandler, true); 
+            header.addEventListener("mouseout", leaveHeaderHandler);
+            //header.firstElementChild.removeEventListener("click", headerHoverHandler, true);
+            //header.removeEventListener("click", headerHoverHandler, true); 
         }       
     });
 }
-/*function triangleHoverHandler() {    
-    this.parentElement.previousElementSibling.classList.toggle("hovered");
-}*/
+
 function menuHoverHandler(e) {
-    e.target.classList.toggle("hovered");
-    e.target.previousElementSibling.firstElementChild.classList.toggle("hovered");
+    //const listItems = Array.from(e.target.children);
+    //const dropdownHeight = listItems.length * 50;
+    //e.target.style.height = dropdownHeight + "px";
+    e.target.previousElementSibling.firstElementChild.children[0].className = "hovered";
 }
+
+function leaveMenuHandler(e) {
+    e.target.style.height = "0";
+    e.target.previousElementSibling.firstElementChild.children[0].classList.remove("hovered");
+}
+
 function headerHoverHandler(e) {
     const listItems = Array.from(e.target.parentElement.nextElementSibling.children);
-    console.log({listItems});
-    console.log(e.target.parentElement.nextElementSibling);
     const dropdownHeight = listItems.length * 50;
-    console.log({dropdownHeight});
     e.target.parentElement.nextElementSibling.style.height = dropdownHeight + "px";
-    e.target.firstElementChild.classList.toggle("hovered");
-    e.target.children[1].classList.add("hovered");
+    e.target.firstElementChild.classList.add("hovered");
+    //e.target.children[1].classList.add("hovered");
+}
+
+function leaveHeaderHandler(e) {
+    //e.target.parentElement.nextElementSibling.style.height = "0";
+    e.target.firstElementChild.classList.remove("hovered");
 }
 
 function handleMenus() {
     menus.forEach(menu => {
-        if (mobileWidth.matches) {
-            window.addEventListener("click", (e) => {
-                if (e.target !== menu && e.target.className !== "header") {
-                menu.classList.remove("hovered");
-                menu.previousElementSibling.firstElementChild.classList.remove("hovered");
-                }
-            }, true);
-            //menu.children[1].children[0].removeEventListener("mouseover", triangleHoverHandler);
-           // menu.children[1].children[0].removeEventListener("mouseout", triangleHoverHandler);
-           // menu.children[1].children[0].addEventListener("click", triangleHoverHandler);
+        if (mobileWidth.matches) {            
             menu.removeEventListener("mouseenter", menuHoverHandler, true);
             menu.removeEventListener("mouseleave", menuHoverHandler, true);
         }
         else {
-           // menu.children[1].children[0].addEventListener("mouseover", triangleHoverHandler);
-           // menu.children[1].children[0].addEventListener("mouseout", triangleHoverHandler);
-           // menu.children[1].children[0].removeEventListener("click", triangleHoverHandler);
+            /*window.addEventListener("mouseover", (e) => {
+                if (e.target === menu || e.target.className === "header") {                
+                    menu.previousElementSibling.firstElementChild.children[1].classList.add("hovered");
+                }
+                else  menu.previousElementSibling.firstElementChild.children[1].classList.remove("hovered");
+            }, true);*/
             menu.addEventListener("mouseenter", menuHoverHandler, true);
-            menu.addEventListener("mouseleave", menuHoverHandler, true);            
+            menu.addEventListener("mouseleave", leaveMenuHandler, true);            
         }         
     });
 }
