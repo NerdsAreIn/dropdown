@@ -22,29 +22,30 @@ nav {
     width: 100vw;    
     background-color: rgb(211, 255, 251);
     height: 90px;
-    padding-left: 10px;    
+    padding-left:  0 2px;    
     display: flex;
     align-items: middle;
-    z-index: 2;    
+    z-index: 1;    
     top: 0;
+    overflow: visible;
 }    
 .header {
     width: 20vw;    
     overflow: visible;
-    display: inline-block;
-    height: 100%;       
-    z-index: 3;   
+    display: inline-block;    
+    height: 90px;       
+    z-index: 2;   
     text-align: center;  
     background-color: inherit;             
-    z-index: 3;          
-    padding: 20px;    
-    border: 2px solid rebeccapurple;
+    z-index: 2;          
+    padding: 20px;         
 }
 .link-container {
     width: max-content;
     margin: auto;
-    /*border: 2px solid royalblue;*/
     padding: 2px;
+    z-index: 3;
+    overflow: visible;
 }
 a {
     margin: auto;
@@ -55,8 +56,7 @@ a {
     position: relative;    
     transition: color ease 100ms;      
     z-index: 4;
-    width: fit-content;
-    border: 2px solid palevioletred;
+    width: fit-content;    
     padding: 5px;
 }
 .arrow {
@@ -87,7 +87,7 @@ a:hover, a.hovered {
     height: 0;
     width: 18vw;
     position: fixed;
-    top: 88px;       
+    top: 87px;       
     margin: 3px 5px;
     background-color: rgb(252, 177, 188);
     z-index: 1;
@@ -104,7 +104,7 @@ a:hover, a.hovered {
     left: 61vw;
 }
 #places-menu {
-    left: 80vw;
+    left: 81vw;
 }
 .menuDiv li {    
     text-align: center;
@@ -114,17 +114,25 @@ a:hover, a.hovered {
     padding: 10px 0;    
     margin: auto;
     height: 50px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;    
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+    position: relative;      
 }
 .menuDiv li:hover, .menuDiv li.hovered {
-    background-color: cornflowerblue;
+    background-color: cornflowerblue;    
 }
 #films-button {
-    padding-top: 33px;
+    padding-top: 32px;
 }
 @media screen and (max-width: 800px) {
     .menuDiv {
         font-size: 0.8rem;
+    }
+    .header, .arrow {
+        font-size: 0.9rem;
+        padding-top: 30px;
+    }
+    #films-button {
+        padding-top: 32px;
     }
 }
 
