@@ -4,12 +4,12 @@
 }
 html {
     font-size: 18px;
-
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "comic";
 }
 body {
     background-color: rgb(245, 234, 245);
@@ -24,50 +24,49 @@ nav {
     height: 90px;
     padding-left: 10px;    
     display: flex;
-    align-items: baseline;
+    align-items: middle;
     z-index: 2;    
-}    
-#nav2 {
     top: 0;
-}
-.li-div {
+}    
+.header {
     width: 20vw;    
     overflow: visible;
-    position: relative;
     display: inline-block;
-    margin: 1px; 
-    height: inherit;       
-    z-index: 3;  
-    height: fit-content;  
+    height: 100%;       
+    z-index: 3;   
+    text-align: center;  
+    background-color: inherit;             
+    z-index: 3;          
+    padding: 20px;    
+    border: 2px solid rebeccapurple;
 }
-li.header {
-    width: fit-content;
-    height: 100%;    
-    text-align: center;        
-    list-style: none;
-    background-color: inherit;
-    font-family: "comic";
-    letter-spacing: 1px; 
-    margin: auto;     
-    z-index: 4;          
-    padding: 5px;    
-    position: relative;
+.link-container {
+    width: max-content;
+    margin: auto;
+    /*border: 2px solid royalblue;*/
+    padding: 2px;
 }
 a {
+    margin: auto;
+    letter-spacing: 1px; 
     text-decoration: none;   
     font-weight: bold;
     color: black;
     position: relative;    
     transition: color ease 100ms;      
-    z-index: 5;
+    z-index: 4;
+    width: fit-content;
+    border: 2px solid palevioletred;
+    padding: 5px;
 }
 .arrow {
     font-size: 1.5rem;
     margin-left: 3px;   
     position: relative;
     top: -2.5px;
+    z-index: 4;
 }
-li.header:hover a, a.hovered {
+a:hover, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -79,25 +78,24 @@ li.header:hover a, a.hovered {
     margin: auto;
     margin-top: 3px;
     position: relative;
-    left: -5px;
+    z-index: 4;    
 }
- .header:hover .underline, .underline.hovered {
-    width: 110%;
+ a:hover + .underline, .underline.hovered {
+    width: 100%;
 }
 .menuDiv {
     height: 0;
     width: 18vw;
     position: fixed;
-    top: 86px;       
+    top: 88px;       
     margin: 3px 5px;
     background-color: rgb(252, 177, 188);
     z-index: 1;
     overflow: hidden;
     transition: height 1s;      
 }
-
 #numbers-menu {
-    left: 8px;
+    left: 1vw;
 }
 #names-menu {
     left: 41vw;
@@ -116,14 +114,13 @@ li.header:hover a, a.hovered {
     padding: 10px 0;    
     margin: auto;
     height: 50px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    font-family: "comic";
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;    
 }
 .menuDiv li:hover, .menuDiv li.hovered {
     background-color: cornflowerblue;
 }
 #films-button {
-    margin-top: 6.3vh;
+    padding-top: 33px;
 }
 @media screen and (max-width: 800px) {
     .menuDiv {
