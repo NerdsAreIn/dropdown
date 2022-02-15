@@ -1,14 +1,16 @@
+const headers = document.querySelectorAll(".header");
 const links = document.querySelectorAll(".header a");
 const menus = Array.from(document.getElementsByClassName("menuDiv"));
-const mobileWidth = window.matchMedia("(max-width: 450px)");
+const mobileWidth = window.matchMedia("(max-width: 800px)");
 const underlines = document.querySelectorAll(".underline");
 
-//mobileWidth.addEventListener("change", handleHeaders);
+mobileWidth.addEventListener("change", collapseNav);
 //window.addEventListener("load", handleHeaders);
 //mobileWidth.addEventListener("change", handleMenus);
 //window.addEventListener("load", handleMenus);
 
 // mouseover also applies to child elements
+
 
 document.addEventListener("mouseover", e => {
     console.log(e.target);
@@ -43,12 +45,10 @@ document.addEventListener("mouseover", e => {
         currentMenu.style.height = dropdownHeight + "px";    
         listItems.forEach(item => {            
             item.addEventListener("mouseenter", e => {
-                console.log({item});
                 item.style.paddingLeft = "30px";
             });
             item.addEventListener("mouseleave", e => {
-                console.log({item});
-                item.style.paddingLeft = "0";
+                 item.style.paddingLeft = "0";
             });
         })       
     }    
@@ -63,6 +63,20 @@ document.addEventListener("mouseover", e => {
 }, true);
 
 
+function collapseNav(e) {
+    if (mobileWidth.matches) {
+        headers.forEach(header => {
+            //e.stopImmediatePropagation();
+            header.classList.add("off-screen");
+        });
+    }
+    else {
+        headers.forEach(header => {
+            //e.stopImmediatePropagation();
+            header.classList.remove("off-screen");
+        });
+    }
+}
 
 
 
