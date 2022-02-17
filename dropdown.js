@@ -3,21 +3,20 @@ const links = document.querySelectorAll(".header a");
 const menus = Array.from(document.getElementsByClassName("menuDiv"));
 const mobileWidth = window.matchMedia("(max-width: 800px)");
 const underlines = document.querySelectorAll(".underline");
+const hamburger = document.getElementById("hamburger");
 
 mobileWidth.addEventListener("change", collapseNav);
-//window.addEventListener("load", handleHeaders);
-//mobileWidth.addEventListener("change", handleMenus);
-//window.addEventListener("load", handleMenus);
 
 // mouseover also applies to child elements
 
-
 document.addEventListener("mouseover", e => {
-    console.log(e.target);
     let selectedLink;    
+    let selectedLinkParent;
     if (e.target.matches(".header a")) {
         selectedLink = e.target;        
-        selectedLink.classList.add("hovered"); 
+        selectedLink.className = "hovered"; 
+        selectedLinkParent = selectedLink.closest(".header");
+        selectedLinkParent.classList.add("active");        
         const selectedUnderline = selectedLink.nextElementSibling;
         selectedUnderline.classList.add("hovered");
         underlines.forEach(underline => {
@@ -34,27 +33,31 @@ document.addEventListener("mouseover", e => {
             currentMenu.classList.add("active");      
         } 
         menus.forEach(menu => {
-            if (menu === currentMenu) return;
+            if (menu === currentMenu) {
+                const listItems = Array.from(currentMenu.children);        
+                const dropdownHeight = listItems.length * 50;
+                currentMenu.style.height = dropdownHeight + "px";    
+                listItems.forEach(item => {            
+                    item.addEventListener("mouseenter", e => {
+                        item.style.paddingLeft = "30px";
+                    });
+                    item.addEventListener("mouseleave", e => {
+                         item.style.paddingLeft = "0";
+                    });
+                });    
+            }
             else {
                 menu.style.height = 0;    
                 menu.classList.remove("active");                           
             }
-        }); 
-        const listItems = Array.from(currentMenu.children);        
-        const dropdownHeight = listItems.length * 50;
-        currentMenu.style.height = dropdownHeight + "px";    
-        listItems.forEach(item => {            
-            item.addEventListener("mouseenter", e => {
-                item.style.paddingLeft = "30px";
-            });
-            item.addEventListener("mouseleave", e => {
-                 item.style.paddingLeft = "0";
-            });
-        })       
+        });           
     }    
-    if (e.target.closest(".menuDiv.active") === null && e.target.closest(".header") === null) {
+    if (e.target.closest(".menuDiv.active") === null && e.target.closest(".header.active") === null) {
         currentMenu = document.querySelector(".menuDiv.active");
         currentMenu.style.height = 0;
+        headers.forEach(header => {
+            header.classList.remove("active");
+        });
         links.forEach(link => {
             link.className = "";
             link.nextElementSibling.classList.remove("hovered");
@@ -64,17 +67,18 @@ document.addEventListener("mouseover", e => {
 
 
 function collapseNav(e) {
+    console.log(document.body.offsetWidth);
     if (mobileWidth.matches) {
-        headers.forEach(header => {
-            //e.stopImmediatePropagation();
+        headers.forEach(header => {           
             header.classList.add("off-screen");
         });
+        setTimeout(() => hamburger.style.left = "50px", 300);
     }
     else {
-        headers.forEach(header => {
-            //e.stopImmediatePropagation();
+        headers.forEach(header => {           
             header.classList.remove("off-screen");
         });
+        hamburger.style.left = "-150px";
     }
 }
 
