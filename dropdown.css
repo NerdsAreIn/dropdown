@@ -1,6 +1,6 @@
 @font-face {
     font-family: "comic";
-    src: url("ComicShark-lgVE5.otf") format("opentype");
+    src: url("fonts/ComicShark-lgVE5.otf") format("opentype");
 }
 html {
     font-size: 18px;
