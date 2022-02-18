@@ -6,6 +6,7 @@ const underlines = document.querySelectorAll(".underline");
 const hamburger = document.getElementById("hamburger");
 
 mobileWidth.addEventListener("change", collapseNav);
+window.addEventListener("load", collapseNav);
 
 // mouseover also applies to child elements
 

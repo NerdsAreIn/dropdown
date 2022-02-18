@@ -15,7 +15,7 @@ body {
     background-color: rgb(245, 234, 245);
     position: relative;
     overflow: auto;
-    z-index: 0;
+    z-index: 0;    
 }
 nav {
     position: fixed; 
@@ -74,6 +74,9 @@ a:hover, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+#curtain a:hover {
+    color: rgb(211, 255, 251);
+}
 .underline {
     height: 3px;
     background-color: cornflowerblue;
@@ -124,9 +127,7 @@ a:hover, a.hovered {
 .menuDiv li:hover, .menuDiv li.hovered {
     background-color: cornflowerblue;    
 }
-#films-button {
-    padding-top: 32px;
-}
+
 @media screen and (max-width: 800px) {
     .menuDiv {
         font-size: 0.8rem;
@@ -156,5 +157,40 @@ a:hover, a.hovered {
     position: relative;    
     height: 7px;     
 }
-
+#curtain {
+    position: fixed;
+    top: 90px;
+    background-color: rgb(255, 223, 227);
+    width: 100%;
+    text-align: center;
+    height: calc(100% - 90px);
+    overflow: auto;
+}
+.curtainItem {
+    height: 20%;
+    min-height: 70px;
+    border-bottom: 3px solid black;    
+    position: relative;   
+}
+.curtainLink {
+    position: relative;
+    top: 25%;
+    height: 50%;
+    display: inline-block;    
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    border: 2px solid darkcyan;
+    padding: 1px 10px 8px;
+}
+#curtain a {
+    color: black;
+    text-decoration: none;
+}
+#curtain a:hover {
+    color: rgb(211, 255, 251);
+}
+nav #films-button {
+    padding-top: 32px;
+}
 
