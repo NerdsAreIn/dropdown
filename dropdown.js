@@ -4,6 +4,8 @@ const menus = Array.from(document.getElementsByClassName("menuDiv"));
 const mobileWidth = window.matchMedia("(max-width: 800px)");
 const underlines = document.querySelectorAll(".underline");
 const hamburger = document.getElementById("hamburger");
+const curtain = document.getElementById("curtain");
+const closeBtn = document.getElementById("closeBtn");
 
 mobileWidth.addEventListener("change", collapseNav);
 window.addEventListener("load", collapseNav);
@@ -54,8 +56,10 @@ document.addEventListener("mouseover", e => {
         });           
     }    
     if (e.target.closest(".menuDiv.active") === null && e.target.closest(".header.active") === null) {
-        currentMenu = document.querySelector(".menuDiv.active");
-        currentMenu.style.height = 0;
+        if (document.querySelector(".menuDiv.active")) {
+            currentMenu = document.querySelector(".menuDiv.active");
+            currentMenu.style.height = 0;
+        }
         headers.forEach(header => {
             header.classList.remove("active");
         });
@@ -71,17 +75,30 @@ function collapseNav(e) {
     console.log(document.body.offsetWidth);
     if (mobileWidth.matches) {
         headers.forEach(header => {           
-            header.classList.add("off-screen");
+            header.classList.add("off-screen");            
         });
-        setTimeout(() => hamburger.style.left = "50px", 300);
+        setTimeout(() => hamburger.style.left = "50px", 300);      
     }
     else {
         headers.forEach(header => {           
             header.classList.remove("off-screen");
         });
-        hamburger.style.left = "-150px";
+        hamburger.style.left = "-150px";     
+        curtain.className = "";   
     }
 }
+
+function openCurtain() {
+    curtain.classList.add("mobile");
+}
+
+function closeCurtain() {
+    console.log("clicked");
+    curtain.classList.remove("mobile");
+}
+
+hamburger.addEventListener("click", openCurtain);
+closeBtn.addEventListener("click", closeCurtain);
 
 
 
