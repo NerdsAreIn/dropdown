@@ -74,8 +74,9 @@ a:hover, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-#curtain a:hover {
+#curtain a:hover, #curtain a.active {
     color: rgb(211, 255, 251);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .underline {
     height: 3px;
@@ -176,6 +177,9 @@ a:hover, a.hovered {
     min-height: 70px;
     border-bottom: 3px solid black;    
     position: relative;   
+}
+.curtainItem.active {
+    background-color: rgb(236, 172, 236);
 }
 .curtainLink {
     position: relative;

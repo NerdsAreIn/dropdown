@@ -6,6 +6,7 @@ const underlines = document.querySelectorAll(".underline");
 const hamburger = document.getElementById("hamburger");
 const curtain = document.getElementById("curtain");
 const closeBtn = document.getElementById("closeBtn");
+const curtainLinks = document.querySelectorAll(".curtainLink a");
 
 mobileWidth.addEventListener("change", collapseNav);
 window.addEventListener("load", collapseNav);
@@ -70,9 +71,22 @@ document.addEventListener("mouseover", e => {
      }  
 }, true);
 
+curtainLinks.forEach(link => {
+    link.addEventListener("click", respondToClick);
+});
+
+function respondToClick(e) {
+    e.target.classList.add("active");
+    e.target.closest(".curtainItem").classList.add("active");
+    curtainLinks.forEach(link => {
+        if (link !== e.target) {
+            link.classList.remove("active");
+            link.closest(".curtainItem").classList.remove("active");
+        }
+    });        
+}
 
 function collapseNav(e) {
-    console.log(document.body.offsetWidth);
     if (mobileWidth.matches) {
         headers.forEach(header => {           
             header.classList.add("off-screen");            
