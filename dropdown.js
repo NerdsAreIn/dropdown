@@ -77,7 +77,8 @@ function collapseNav(e) {
         headers.forEach(header => {           
             header.classList.add("off-screen");            
         });
-        setTimeout(() => hamburger.style.left = "50px", 300);      
+        const time = 300;
+        setTimeout(() => hamburger.style.left = "50px", time);      
     }
     else {
         headers.forEach(header => {           
