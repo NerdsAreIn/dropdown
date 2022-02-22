@@ -75,8 +75,14 @@ curtainLinks.forEach(link => {
     link.addEventListener("click", respondToClick);
 });
 
+
 function respondToClick(e) {
     let curtainLink = e.target;
+    let arrow = curtainLink.firstElementChild;
+    //console.log(downArrow.outerHTML);
+    //let downArrowClone = downArrow.outerHTML;
+   // console.log({downArrowClone});
+    //console.log({downArrow});
     console.log({curtainLink});
     curtainLink.classList.add("active")
     let curtainItem = curtainLink.parentElement.parentElement;
@@ -88,7 +94,18 @@ function respondToClick(e) {
             link.closest(".curtainItem").classList.remove("active");
         }
     });
-    openDropdown(curtainItem);        
+    openDropdown(curtainItem);    
+    //let upArrow = document.createElement("span");
+    //upArrow.setAttribute("class", "arrow");
+    //upArrow.innerHTML = "⌃";
+    if (arrow.innerHTML == "⌄") { 
+        arrow.innerHTML = "⌃";
+        arrow.classList.add("up");
+    }
+    else if (arrow.innerHTML == "⌃") {
+        arrow.innerHTML = "⌄";  
+        arrow.classList.remove("up");  
+    }
 }
 
 function openDropdown(curtainHeader) {  
@@ -98,7 +115,7 @@ function openDropdown(curtainHeader) {
     const listItems = Array.from(curtainDropdown.children);        
     const dropdownHeight = listItems.length * 50;
     console.log({dropdownHeight});
-    curtainHeader.style.marginBottom = dropdownHeight;
+    //curtainHeader.style.marginBottom = dropdownHeight;
     curtainDropdown.classList.toggle("open");
     curtainDropdown.style.height = dropdownHeight + "px";  
 }

@@ -70,6 +70,9 @@ nav {
     top: -4px;
     z-index: 4;
 }
+.arrow.up {
+    top: 2px;
+}
 a:hover, a.hovered {
     color:  rgb(252, 177, 188);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -140,6 +143,9 @@ a:hover, a.hovered {
     #films-button {
         padding-top: 32px;
     }
+    nav {
+        border-bottom: 4px solid black;
+    }
 }
 #hamburger {
     height: auto;
@@ -163,6 +169,7 @@ a:hover, a.hovered {
     top: 90px;
     right: 0;
     background-color: rgb(255, 223, 227);
+    background-color: rgb(252, 177, 188);
     width: 0;
     text-align: center;
     height: calc(100% - 90px);
@@ -220,7 +227,7 @@ nav #films-button {
     z-index: 5;
     width: 28px;
     height: 25px;
-    background-color: rgb(255, 44, 150);
+    background-color: purple;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -255,7 +262,7 @@ nav #films-button {
 }
 .curtainMenu li {
     border-bottom: 3px solid black;
-    background-color: rgb(192, 253, 233);
+    background-color: rgb(211, 255, 251);    
     height: 50px;   
     line-height: 30px;
     padding-top:  10px;
