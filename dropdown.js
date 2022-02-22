@@ -76,14 +76,31 @@ curtainLinks.forEach(link => {
 });
 
 function respondToClick(e) {
-    e.target.classList.add("active");
-    e.target.closest(".curtainItem").classList.add("active");
+    let curtainLink = e.target;
+    console.log({curtainLink});
+    curtainLink.classList.add("active")
+    let curtainItem = curtainLink.parentElement.parentElement;
+    curtainItem.classList.add("active");
+    console.log({curtainItem});
     curtainLinks.forEach(link => {
-        if (link !== e.target) {
+        if (link !== curtainLink) {
             link.classList.remove("active");
             link.closest(".curtainItem").classList.remove("active");
         }
-    });        
+    });
+    openDropdown(curtainItem);        
+}
+
+function openDropdown(curtainHeader) {  
+    console.log({curtainHeader});
+    let curtainDropdown = curtainHeader.nextElementSibling;  
+    console.log({curtainDropdown});
+    const listItems = Array.from(curtainDropdown.children);        
+    const dropdownHeight = listItems.length * 50;
+    console.log({dropdownHeight});
+    curtainHeader.style.marginBottom = dropdownHeight;
+    curtainDropdown.classList.toggle("open");
+    curtainDropdown.style.height = dropdownHeight + "px";  
 }
 
 function collapseNav(e) {

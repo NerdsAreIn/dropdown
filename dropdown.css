@@ -168,6 +168,7 @@ a:hover, a.hovered {
     height: calc(100% - 90px);
     overflow: auto;
     transition: width 1s ease-out;
+    z-index: 1;
 }
 #curtain.mobile {
     width: 100%;
@@ -176,10 +177,12 @@ a:hover, a.hovered {
     height: 20%;
     min-height: 70px;
     border-bottom: 3px solid black;    
-    position: relative;   
+    position: relative;  
+    z-index: 2; 
+    overflow: hidden;
 }
 .curtainItem.active {
-    background-color: rgb(236, 172, 236);
+    background-color: rgb(236, 172, 236);    
 }
 .curtainLink {
     position: relative;
@@ -189,6 +192,7 @@ a:hover, a.hovered {
     width: fit-content;
     margin: auto;
     text-align: center;
+    z-index: 3;
     /*border: 2px solid darkcyan;*/   
 }
 #curtain a {
@@ -200,6 +204,7 @@ a:hover, a.hovered {
     padding-top: 10px;
     padding-bottom: 5px;
     margin-bottom: -6px;
+    z-index: 4;
 }
 #curtain a:hover {
     color: rgb(211, 255, 251);
@@ -215,13 +220,13 @@ nav #films-button {
     z-index: 5;
     width: 28px;
     height: 25px;
-    background-color: rgb(9, 168, 115);
+    background-color: rgb(255, 44, 150);
     border-radius: 5px;
     cursor: pointer;
 }
 #closeBtn:hover {
     transform: scale(1.1);
-    background-color: rgb(6, 110, 76);
+    background-color: rgb(88, 140, 236);
 }
 .btnStripe {
     width: 85%;
@@ -238,5 +243,21 @@ nav #films-button {
 .btnStripe:last-child {
     transform: rotate(-45deg);
     bottom: 3px;
+}
+.curtainMenu {
+    list-style: none;
+    height: 0;
+    display: none;   
+    transition: height 1s; 
+}
+.curtainMenu.open {
+    display: block;
+}
+.curtainMenu li {
+    border-bottom: 3px solid black;
+    background-color: rgb(192, 253, 233);
+    height: 50px;   
+    line-height: 30px;
+    padding-top:  10px;
 }
 
