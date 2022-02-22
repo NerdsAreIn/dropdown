@@ -67,7 +67,7 @@ nav {
     font-size: 1.5rem;
     margin-left: 3px;   
     position: relative;
-    top: -2.5px;
+    top: -4px;
     z-index: 4;
 }
 a:hover, a.hovered {
@@ -190,7 +190,6 @@ a:hover, a.hovered {
     margin: auto;
     text-align: center;
     /*border: 2px solid darkcyan;*/   
-    vertical-align: middle;
 }
 #curtain a {
     color: black;
