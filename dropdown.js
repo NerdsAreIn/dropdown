@@ -10,6 +10,8 @@ const curtainLinks = document.querySelectorAll(".curtainLink a");
 
 mobileWidth.addEventListener("change", collapseNav);
 window.addEventListener("load", collapseNav);
+hamburger.addEventListener("click", openCurtain);
+closeBtn.addEventListener("click", closeCurtain);
 
 // mouseover also applies to child elements
 
@@ -75,29 +77,23 @@ curtainLinks.forEach(link => {
     link.addEventListener("click", respondToClick);
 });
 
-
 function respondToClick(e) {
-    let curtainLink = e.target;
-    let arrow = curtainLink.firstElementChild;
-    //console.log(downArrow.outerHTML);
-    //let downArrowClone = downArrow.outerHTML;
-   // console.log({downArrowClone});
-    //console.log({downArrow});
-    console.log({curtainLink});
+    let curtainLink = e.target;    
     curtainLink.classList.add("active")
     let curtainItem = curtainLink.parentElement.parentElement;
     curtainItem.classList.add("active");
-    console.log({curtainItem});
     curtainLinks.forEach(link => {
         if (link !== curtainLink) {
             link.classList.remove("active");
             link.closest(".curtainItem").classList.remove("active");
         }
     });
-    openDropdown(curtainItem);    
-    //let upArrow = document.createElement("span");
-    //upArrow.setAttribute("class", "arrow");
-    //upArrow.innerHTML = "⌃";
+    openDropdown(curtainItem);
+    toggleArrow(curtainLink);   
+}
+
+function toggleArrow(link) {
+    let arrow = link.firstElementChild;
     if (arrow.innerHTML == "⌄") { 
         arrow.innerHTML = "⌃";
         arrow.classList.add("up");
@@ -109,13 +105,9 @@ function respondToClick(e) {
 }
 
 function openDropdown(curtainHeader) {  
-    console.log({curtainHeader});
-    let curtainDropdown = curtainHeader.nextElementSibling;  
-    console.log({curtainDropdown});
+    let curtainDropdown = curtainHeader.nextElementSibling;      
     const listItems = Array.from(curtainDropdown.children);        
-    const dropdownHeight = listItems.length * 50;
-    console.log({dropdownHeight});
-    //curtainHeader.style.marginBottom = dropdownHeight;
+    const dropdownHeight = listItems.length * 50;      
     curtainDropdown.classList.toggle("open");
     curtainDropdown.style.height = dropdownHeight + "px";  
 }
@@ -124,9 +116,8 @@ function collapseNav(e) {
     if (mobileWidth.matches) {
         headers.forEach(header => {           
             header.classList.add("off-screen");            
-        });
-        const time = 300;
-        setTimeout(() => hamburger.style.left = "50px", time);      
+        });      
+        setTimeout(() => hamburger.style.left = "50px", 300);      
     }
     else {
         headers.forEach(header => {           
@@ -141,13 +132,11 @@ function openCurtain() {
     curtain.classList.add("mobile");
 }
 
-function closeCurtain() {
-    console.log("clicked");
+function closeCurtain() {    
     curtain.classList.remove("mobile");
 }
 
-hamburger.addEventListener("click", openCurtain);
-closeBtn.addEventListener("click", closeCurtain);
+
 
 
 

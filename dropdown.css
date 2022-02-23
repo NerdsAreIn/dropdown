@@ -4,6 +4,7 @@
 }
 html {
     font-size: 18px;
+    letter-spacing: 1px;
 }
 * {
     margin: 0;
@@ -52,8 +53,7 @@ nav {
     overflow: visible;
 }
 .header a {
-    margin: auto;
-    letter-spacing: 1px; 
+    margin: auto;    
     text-decoration: none;   
     font-weight: bold;
     color: black;
@@ -73,12 +73,9 @@ nav {
 .arrow.up {
     top: 2px;
 }
+
 a:hover, a.hovered {
     color:  rgb(252, 177, 188);
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-#curtain a:hover, #curtain a.active {
-    color: rgb(211, 255, 251);
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .underline {
@@ -199,13 +196,11 @@ a:hover, a.hovered {
     width: fit-content;
     margin: auto;
     text-align: center;
-    z-index: 3;
-    /*border: 2px solid darkcyan;*/   
+    z-index: 3;      
 }
 #curtain a {
     color: black;
-    text-decoration: none;
-    /*border: 1px solid rebeccapurple;*/
+    text-decoration: none;    
     height: 95%;
     display: inline-block;    
     padding-top: 10px;
@@ -213,8 +208,10 @@ a:hover, a.hovered {
     margin-bottom: -6px;
     z-index: 4;
 }
-#curtain a:hover {
-    color: rgb(211, 255, 251);
+#curtain a:hover, #curtain a.active {
+    color: rgb(211, 255, 251);   
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    
 }
 nav #films-button {
     padding-top: 32px;
