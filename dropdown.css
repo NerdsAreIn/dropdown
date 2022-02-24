@@ -262,6 +262,15 @@ nav #films-button {
     background-color: rgb(211, 255, 251);    
     height: 50px;   
     line-height: 30px;
-    padding-top:  10px;
+}
+.curtainMenu li a {
+    padding: 0 5px;
+}
+#curtain .curtainMenu li a:hover {
+    color: rgb(236, 172, 236);
+    /*background-color: rgb(252, 177, 188);*/
+    /*color: rgb(252, 177, 188);
+    background-color: rgb(236, 172, 236);*/
+    background-color: transparent;
 }
 

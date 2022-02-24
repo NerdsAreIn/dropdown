@@ -7,6 +7,7 @@ const hamburger = document.getElementById("hamburger");
 const curtain = document.getElementById("curtain");
 const closeBtn = document.getElementById("closeBtn");
 const curtainLinks = document.querySelectorAll(".curtainLink a");
+const curtainDropdowns = document.querySelectorAll(".curtainMenu");
 
 mobileWidth.addEventListener("change", collapseNav);
 window.addEventListener("load", collapseNav);
@@ -58,7 +59,8 @@ document.addEventListener("mouseover", e => {
             }
         });           
     }    
-    if (e.target.closest(".menuDiv.active") === null && e.target.closest(".header.active") === null) {
+    if (e.target.closest(".menuDiv.active") === null && e.target.closest(".header.active")
+     === null) {
         if (document.querySelector(".menuDiv.active")) {
             currentMenu = document.querySelector(".menuDiv.active");
             currentMenu.style.height = 0;
@@ -94,7 +96,7 @@ function respondToClick(e) {
 
 function toggleArrow(link) {
     let arrow = link.firstElementChild;
-    if (arrow.innerHTML == "⌄") { 
+    if (arrow.innerHTML == "⌄" && arrow.closest(".curtainItem.active")) { 
         arrow.innerHTML = "⌃";
         arrow.classList.add("up");
     }
@@ -110,6 +112,13 @@ function openDropdown(curtainHeader) {
     const dropdownHeight = listItems.length * 50;      
     curtainDropdown.classList.toggle("open");
     curtainDropdown.style.height = dropdownHeight + "px";  
+    curtainDropdowns.forEach(dropdown => {
+        if (dropdown !== curtainDropdown) {
+            dropdown.style.height = 0;
+            dropdown.classList.remove("open");
+            toggleArrow(dropdown.previousElementSibling.firstElementChild.firstElementChild);
+        }
+    });  
 }
 
 function collapseNav(e) {
