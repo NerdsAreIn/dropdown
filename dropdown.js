@@ -107,18 +107,41 @@ function toggleArrow(link) {
 }
 
 function openDropdown(curtainHeader) {  
-    let curtainDropdown = curtainHeader.nextElementSibling;      
+    const curtainDropdown = curtainHeader.nextElementSibling;      
     const listItems = Array.from(curtainDropdown.children);        
-    const dropdownHeight = listItems.length * 50;      
+    const dropdownHeight = listItems.length * 60;      
     curtainDropdown.classList.toggle("open");
     curtainDropdown.style.height = dropdownHeight + "px";  
     curtainDropdowns.forEach(dropdown => {
         if (dropdown !== curtainDropdown) {
+            const inactiveLinks = dropdown.querySelectorAll("a");
             dropdown.style.height = 0;
             dropdown.classList.remove("open");
-            toggleArrow(dropdown.previousElementSibling.firstElementChild.firstElementChild);
+            toggleArrow(dropdown.previousElementSibling.firstElementChild.firstElementChild);            
+            inactiveLinks.forEach(link => {
+                link.classList.remove("clicked");
+                link.parentElement.classList.remove("clicked");
+            });
         }
-    });  
+    }); 
+    const links = curtainDropdown.querySelectorAll("a");
+    makeClicky(links);   
+}
+
+function makeClicky(links) {
+    links.forEach(link => {
+        link.addEventListener("click", (e) => {
+            const selectedLink = e.target;
+            selectedLink.classList.add("clicked");
+            selectedLink.parentElement.classList.add("clicked"); 
+            links.forEach(link => {
+                if (link !== selectedLink) {
+                    link.classList.remove("clicked");
+                    link.parentElement.classList.remove("clicked");
+                }
+            });          
+        });
+    }); 
 }
 
 function collapseNav(e) {
@@ -144,8 +167,3 @@ function openCurtain() {
 function closeCurtain() {    
     curtain.classList.remove("mobile");
 }
-
-
-
-
-
