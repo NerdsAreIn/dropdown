@@ -1,0 +1,25 @@
+{
+  "name": "slidedownmenu-responsive",
+  "version": "1.0.0",
+  "description": "Responsive nav bar with fullscreen menus sliding down.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/NerdsAreIn/dropdown.git"
+  },
+  "keywords": [
+    "menu",
+    "dropdown",
+    "responsive",
+    "navbar"
+  ],
+  "author": "NerdsAreIn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NerdsAreIn/dropdown/issues"
+  },
+  "homepage": "https://github.com/NerdsAreIn/dropdown#readme"
+}
