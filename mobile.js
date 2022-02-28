@@ -1,6 +1,6 @@
 import headersImport from "./dropdown.js";
 
-const mobileWidth = window.matchMedia("(max-width: 800px)");
+const mobileWidth = window.matchMedia("(max-width: 810px)");
 const hamburger = document.getElementById("hamburger");
 const curtain = document.getElementById("curtain");
 const closeBtn = document.getElementById("closeBtn");

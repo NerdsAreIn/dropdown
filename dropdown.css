@@ -16,7 +16,7 @@ body {
     background-color: rgb(245, 234, 245);
     position: relative;
     overflow: auto;
-    z-index: 0;    
+    z-index: 0;       
 }
 nav {
     position: fixed; 
@@ -108,13 +108,13 @@ a:hover, a.hovered {
     transition: height 1s;      
 }
 #numbers-menu {
-    left: 1vw;
+    left: 3vw;
 }
 #names-menu {
-    left: 41vw;
+    left: 42vw;
 }
 #food-menu {
-    left: 61vw;
+    left: 62vw;
 }
 #places-menu {
     left: 81vw;
@@ -138,7 +138,7 @@ a:hover, a.hovered {
     width: 50px;
     background-color: transparent;
     position: relative;
-    top: 5px;   
+    top: 5.5vh;   
     z-index: 3;
     transition: left 700ms;
 }
@@ -148,7 +148,7 @@ a:hover, a.hovered {
     margin: 4px 0;
     background-color: rgb(252, 177, 188);
     position: relative;    
-    height: 7px;     
+    height: 6px;     
 }
 #curtain {
     position: fixed;
@@ -256,24 +256,27 @@ a:hover, a.hovered {
     color: rgb(211, 255, 251);   
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;    
 }
-@media screen and (max-width: 800px) {
-    .menuDiv {
-        font-size: 0.8rem;
-    }
-    .header, .arrow {
-        font-size: 0.9rem;
-        padding-top: 30px;
-    }
-    #films-button {
-        padding-top: 32px;
-    }
+@media screen and (max-width: 810px) {
     nav {
-        border-bottom: 4px solid black;
+        border-bottom: 4px solid black;     
+    }
+}
+@media screen and (max-width: 810px) and (min-height: 1000px) {
+    nav {
+        height: 14vh;     
+    }
+    #curtain {
+        top: 14vh;       
+        height: 86vh;        
+    }
+    .curtainItem {
+        height: calc(86vh / 5);
     }
 }
 @media screen and (max-width: 450px) and (max-height: 950px) {
     nav {
         height: 17vh;
+        overflow: hidden;
     }
     #curtain {
         top: 17vh;       
@@ -283,28 +286,31 @@ a:hover, a.hovered {
         height: calc(83vh / 5);
     }
     #hamburger {
-        top: 4vh;
+        top: 6.5vh;
         width: 60px;
     }
      #closeBtn {
         top: 10px;
     }
+    #signature {
+        font-size: 0.7rem;
+    }
 }
-#footer-container {
-    /*background-color: fuchsia;
+footer {
+    z-index: 0;
     position: fixed;
     bottom: 0;
-    height: 14vh;
     width: 100%;
-    border-top: 1px solid black;*/
+    height: 21vh;    
 }
 .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     background-color: fuchsia;
     height: 17vh;
     min-height: 70px;
     width: 60vw;
+    z-index: 1;
     /*border-top: 1px solid black;*/
 }
 #footer1 {
@@ -314,4 +320,31 @@ a:hover, a.hovered {
 #footer2 {
    right: -10px;
    transform: rotate(-4deg);
+}
+.pinkbox {
+    background-color: fuchsia;
+    position: absolute; 
+    height: 70px;
+    width: 30vw;
+    bottom: 0;
+    z-index: 1;
+}
+#pink1 {
+    left: 0;
+}
+#pink2 {
+    right: 0;
+}
+#footer-content {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    width: 100%;
+    border-bottom: 15px solid rgb(211, 255, 251);
+}
+#signature {
+    position: relative;
+    left: 30px;
+    font-size: 0.9rem;
 }

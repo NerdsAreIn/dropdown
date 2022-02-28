@@ -6,7 +6,7 @@ const underlines = document.querySelectorAll(".underline");
 
 // mouseover also applies to child elements
 
-document.addEventListener("mouseover", e => {
+function respondToEvent(e) {
     let selectedLink;    
     let selectedLinkParent;
     if (e.target.matches(".header a")) {
@@ -62,5 +62,8 @@ document.addEventListener("mouseover", e => {
             link.className = "";
             link.nextElementSibling.classList.remove("hovered");
         });
-     }  
-}, true);
+     }
+}
+
+document.addEventListener("mouseover", respondToEvent, true);
+document.addEventListener("click", respondToEvent, true);
