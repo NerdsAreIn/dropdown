@@ -290,3 +290,28 @@ a:hover, a.hovered {
         top: 10px;
     }
 }
+#footer-container {
+    /*background-color: fuchsia;
+    position: fixed;
+    bottom: 0;
+    height: 14vh;
+    width: 100%;
+    border-top: 1px solid black;*/
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: fuchsia;
+    height: 17vh;
+    min-height: 70px;
+    width: 60vw;
+    /*border-top: 1px solid black;*/
+}
+#footer1 {
+    left: -10px;
+    transform: rotate(4deg);
+}
+#footer2 {
+   right: -10px;
+   transform: rotate(-4deg);
+}
