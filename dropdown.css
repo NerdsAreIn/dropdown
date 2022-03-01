@@ -74,7 +74,7 @@ nav #films-button {
     z-index: 4;
 }
 .arrow.up {
-    top: 2px;
+    top: 7px;
 }
 a, button {
     cursor: pointer;
@@ -184,17 +184,23 @@ a:hover, a.hovered {
     width: fit-content;
     margin: auto;
     text-align: center;
-    z-index: 3;      
+    z-index: 3;    
+    padding-top: 3px;
+}
+.curtainLink#curtain-filmsLink {
+    padding-top: 6px;
 }
 #curtain a {
     color: black;
     text-decoration: none;    
-    height: 95%;
-    display: inline-block;    
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin-bottom: -6px;
-    z-index: 4;
+    height: 100%;
+    display: inline-block;   
+}
+#curtain .curtainLink > a {
+    z-index: 4;    
+    vertical-align: middle;   
+    line-height: 25px;
+    padding-bottom: calc((100% - 25px) / 2);
 }
 #closeBtn {
     position: absolute;
@@ -239,15 +245,16 @@ a:hover, a.hovered {
 .curtainMenu li {
     border-bottom: 3px solid black;
     background-color: rgb(211, 255, 251);    
-    height: 60px;   
-    line-height: 30px;
+    height: 60px;          
+    padding-top: 15px;
 }
-.curtainMenu li a {
-    padding: 0 5px;
+#curtain > .curtainMenu > li > a  {
+    padding: 5px;
+    height: 50%;    
 }
 #curtain .curtainMenu li a:hover {
     color: rgb(236, 172, 236);
-    background-color: transparent;
+    background-color: transparent;  
 }
 #curtain .curtainMenu li.clicked {
     background-color: rgb(236, 172, 236);    
@@ -285,6 +292,12 @@ a:hover, a.hovered {
     .curtainItem {
         height: calc(83vh / 5);
     }
+    .curtainLink {
+        padding-top: 17px;
+    }
+    .curtainLink#curtain-filmsLink {
+        padding-top: 20px;;
+    }
     #hamburger {
         top: 6.5vh;
         width: 60px;
@@ -311,7 +324,6 @@ footer {
     min-height: 70px;
     width: 60vw;
     z-index: 1;
-    /*border-top: 1px solid black;*/
 }
 #footer1 {
     left: -10px;

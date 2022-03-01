@@ -27,8 +27,24 @@ function respondToClick(e) {
             link.closest(".curtainItem").classList.remove("active");
         }
     });
-    openDropdown(curtainItem);
-    toggleArrow(curtainLink);   
+    if (curtainLink.parentElement.id == "") {
+        openDropdown(curtainItem);
+        toggleArrow(curtainLink);   
+    }
+    else {
+        curtainDropdowns.forEach(dropdown => closeInactiveDropdowns(dropdown)); 
+    }
+}
+
+function closeInactiveDropdowns(dropdown) {
+    const inactiveLinks = dropdown.querySelectorAll("a");
+    dropdown.style.height = 0;
+    dropdown.classList.remove("open"); 
+    toggleArrow(dropdown.previousElementSibling.firstElementChild.firstElementChild);                        
+    inactiveLinks.forEach(link => {
+        link.classList.remove("clicked");
+        link.parentElement.classList.remove("clicked");
+    });   
 }
 
 function toggleArrow(link) {
@@ -51,14 +67,7 @@ function openDropdown(curtainHeader) {
     curtainDropdown.style.height = dropdownHeight + "px";  
     curtainDropdowns.forEach(dropdown => {
         if (dropdown !== curtainDropdown) {
-            const inactiveLinks = dropdown.querySelectorAll("a");
-            dropdown.style.height = 0;
-            dropdown.classList.remove("open");
-            toggleArrow(dropdown.previousElementSibling.firstElementChild.firstElementChild);            
-            inactiveLinks.forEach(link => {
-                link.classList.remove("clicked");
-                link.parentElement.classList.remove("clicked");
-            });
+           closeInactiveDropdowns(dropdown);
         }
     }); 
     const links = curtainDropdown.querySelectorAll("a");
