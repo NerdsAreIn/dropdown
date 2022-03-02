@@ -1,5 +1,5 @@
 {
-  "name": "slidedownmenu-responsive",
+  "name": "@nerds-are-in/slidedownmenu-responsive",
   "version": "2.0.0",
   "description": "Responsive nav bar with fullscreen menus sliding down.",
   "main": "index.js",
@@ -24,5 +24,8 @@
   "homepage": "https://github.com/NerdsAreIn/dropdown#readme",
   "dependencies": {
     "slidedownmenu-responsive": "^2.0.0"
+  },
+  "publishConfig": {
+    "@nerds-are-in:registry": "https://npm.pkg.github.com"
   }
 }
