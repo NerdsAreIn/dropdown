@@ -122,16 +122,25 @@ a:hover, a.hovered {
 .menuDiv li {    
     text-align: center;
     list-style: none;
-    background-color: rgb(252, 177, 188);
-    color: rgb(228, 255, 255);
-    padding: 10px 0;    
-    margin: auto;
-    height: 50px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
-    position: relative;      
+    height: 50px;    
+    position: relative;
+    width: 100%;      
 }
-.menuDiv li:hover, .menuDiv li.hovered {
+ul.menuDiv > li > a {
+    text-decoration: none;
+    color: rgb(228, 255, 255);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+    background-color: transparent;
+    height: 50px;
+    display: inline-block;
+    width: 100%;
+    padding-top: 15px;
+}
+.menuDiv li:hover, .menuDiv li.hovered, .menuDiv li a.active {
     background-color: cornflowerblue;    
+}
+.menuDiv li > a.active {
+    padding-left: 30px;
 }
 #hamburger {
     height: auto;
@@ -278,6 +287,12 @@ a:hover, a.hovered {
     }
     .curtainItem {
         height: calc(86vh / 5);
+    }
+    .curtainLink {
+        padding-top: 20px;
+    }
+    .curtainLink#curtain-filmsLink {
+        padding-top: 25px;
     }
 }
 @media screen and (max-width: 450px) and (max-height: 950px) {

@@ -31,21 +31,29 @@ function respondToEvent(e) {
         } 
         menus.forEach(menu => {
             if (menu === currentMenu) {
-                const listItems = Array.from(currentMenu.children);        
+                const listItems = currentMenu.querySelectorAll("a");        
                 const dropdownHeight = listItems.length * 50;
                 currentMenu.style.height = dropdownHeight + "px";    
-                listItems.forEach(item => {            
+                listItems.forEach(item => { 
+                    item.addEventListener("click", e => {       
+                        item.classList.add("active");
+                        listItems.forEach(item => {
+                            if (item !== e.target) item.classList.remove("active");
+                        });
+                    });   
                     item.addEventListener("mouseenter", e => {
-                        item.style.paddingLeft = "30px";
+                        item.firstElementChild.style.paddingLeft = "30px";
                     });
                     item.addEventListener("mouseleave", e => {
-                         item.style.paddingLeft = "0";
+                         item.firstElementChild.style.paddingLeft = "0";
                     });
                 });    
             }
             else {
                 menu.style.height = 0;    
-                menu.classList.remove("active");                           
+                menu.classList.remove("active");
+                const inactiveListItems = menu.querySelectorAll("a");
+                inactiveListItems.forEach(item => item.classList.remove("active"));                           
             }
         });           
     }    
