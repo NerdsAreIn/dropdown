@@ -6,4 +6,4 @@ I was inspired by the styling of the following website: https://www.beatthestree
 
 The various code branches feature different variations of the same content.
 
-I have published this code package on npm as my first module (see link in the sidebar).
+I have published this code package on npm as my first module: https://www.npmjs.com/package/slidedownmenu-responsive
