@@ -136,7 +136,7 @@ ul.menuDiv > li > a {
     width: 100%;
     padding-top: 15px;
 }
-.menuDiv li a:hover, .menuDiv li a.hovered, .menuDiv li a.active {
+.menuDiv li:hover a, .menuDiv li a.active {
     background-color: cornflowerblue;   
     padding-left: 30px;
 }
