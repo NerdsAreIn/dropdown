@@ -137,9 +137,7 @@ ul.menuDiv > li > a {
     padding-top: 15px;
 }
 .menuDiv li:hover, .menuDiv li.hovered, .menuDiv li a.active {
-    background-color: cornflowerblue;    
-}
-.menuDiv li > a.active {
+    background-color: cornflowerblue;   
     padding-left: 30px;
 }
 #hamburger {
