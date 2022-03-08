@@ -42,10 +42,10 @@ function respondToEvent(e) {
                         });
                     });   
                     item.addEventListener("mouseenter", e => {
-                        item.firstElementChild.style.paddingLeft = "30px";
+                        item.classList.add("active");
                     });
                     item.addEventListener("mouseleave", e => {
-                         item.firstElementChild.style.paddingLeft = "0";
+                         item.classList.remove("active");
                     });
                 });    
             }
